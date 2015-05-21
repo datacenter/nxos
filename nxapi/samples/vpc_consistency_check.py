@@ -33,8 +33,8 @@ my_headers = {'content-type': 'application/json-rpc'}
 
 ## TODO Specify the Mgmt IP and the credentials here
 
-switch_a =  { 'mgmt_ip' : '10.104.251.85', 'username': 'admin', 'user_pw' : 'nbv_12345'}
-switch_b =  { 'mgmt_ip' : '10.104.251.86', 'username': 'admin', 'user_pw' : 'nbv_12345'}
+switch_a =  { 'mgmt_ip' : '10.104.251.85', 'username': 'admin', 'user_pw' : 'password'}
+switch_b =  { 'mgmt_ip' : '10.104.251.86', 'username': 'admin', 'user_pw' : 'password'}
 vpc_id = []
 
 
