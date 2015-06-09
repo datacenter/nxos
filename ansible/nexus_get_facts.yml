@@ -1,0 +1,16 @@
+---
+
+- name: Get some facts from the device
+  hosts: all
+  connection: local
+  gather_facts: no
+
+
+  tasks:
+
+    # retrieve facts
+    - nxos_get_facts: host={{ inventory_hostname }}
+      register: my_data
+
+    - name: Store Data in File
+      template: src=facts.j2 dest=configs/{{ inventory_hostname }}_data.json 

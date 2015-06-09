@@ -1,0 +1,17 @@
+# Get Neighbor data
+---
+
+- name: get neighbors data
+  hosts: all
+  connection: local
+  gather_facts: no
+
+
+  tasks:
+
+    - name: get neighbors
+      nxos_get_neighbors: type=cdp host={{ inventory_hostname }} username=admin password=nbv_12345
+      register: my_data
+
+    - name: Store Data in File
+      template: src=data.j2 dest=configs/{{ inventory_hostname }}_neighbors.json 

@@ -1,0 +1,16 @@
+event manager applet syslogup
+  event syslog pattern "ETHPORT-5-IF_UP.*1\/8"
+  action 1 syslog priority alerts msg primary intf up, no shutting secondaries
+  action 2 cli int e1/17 - 32
+  action 3 cli no shut
+  action 4 cli end
+  action 5 syslog priority alerts msg done
+
+
+event manager applet syslogdown
+  event syslog pattern "IF_DOWN_LINK_FAILURE.*1\/8"
+  action 1 syslog priority alerts msg interface down
+  action 2 cli int e1/17 - 32
+  action 3 cli shut
+  action 4 cli end
+  action 5 syslog priority alerts msg done

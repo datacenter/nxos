@@ -1,0 +1,20 @@
+---
+
+- name: sample playbook
+  hosts: n5k-1
+
+  tasks:
+
+    - name: default interfaces
+      nxos_interface: interface={{ item }} state=default host={{ inventory_hostname }}
+      with_items:
+        - Ethernet1/1
+        - Ethernet1/2
+
+    # Ensure an interface is a Layer 3 port and that it has the proper description
+    - name: config interface
+      nxos_interface: interface=Ethernet1/1 description='Configured by Ansible' mode=layer3 host={{ inventory_hostname }}
+
+    # Admin down an interface
+    - nxos_interface: interface=Ethernet1/2 admin_state=down host={{ inventory_hostname }}
+
